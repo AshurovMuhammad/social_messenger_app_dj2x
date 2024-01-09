@@ -144,3 +144,10 @@ SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '873214357280-44atspp6oigsnve7c161paa9o5kg6o8h.apps.googleusercontent.com'  # Google Consumer Key
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'  # Google Consumer Secret
+
+from django.urls import reverse_lazy
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail',
+                                        args=[u.username])
+}
